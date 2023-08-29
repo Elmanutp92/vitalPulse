@@ -15,7 +15,7 @@ class _Recomendation1State extends State<Recomendation1> {
     Responsive responsive = Responsive(context);
     double dw = responsive.width;
     double dh = responsive.height;
-    double dg = responsive.diagonal;
+    //double dg = responsive.diagonal;
     return Scaffold(
       body: Container(
         //color: Colors.amber,

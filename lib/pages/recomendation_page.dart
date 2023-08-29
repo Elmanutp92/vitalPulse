@@ -1,35 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:vital_pulse/styles/colors.dart';
 import 'package:vital_pulse/styles/responsive_size.dart';
 import 'package:vital_pulse/widgets/widgets_recomendations/recomendation1.dart';
 import 'package:vital_pulse/widgets/widgets_recomendations/recomendation2.dart';
 import 'package:vital_pulse/widgets/widgets_recomendations/recomendation3.dart';
 import 'package:vital_pulse/widgets/widgets_recomendations/recomendation4.dart';
 
-
-
 class RecommendationPage extends StatefulWidget {
-  
-
-   const RecommendationPage({super.key});
+  const RecommendationPage({super.key});
 
   @override
   State<RecommendationPage> createState() => _RecommendationPageState();
 }
 
 class _RecommendationPageState extends State<RecommendationPage> {
-  
   final List<Widget> recommendations = [
-   const Recomendation1(),
-   const Recomendation2(),
-   const Recomendation3(),
-   const Recomendation4(),
+    const Recomendation1(),
+    const Recomendation2(),
+    const Recomendation3(),
+    const Recomendation4(),
   ];
 
   @override
   Widget build(BuildContext context) {
-    
     return Scaffold(
-     
       body: RecommendationCarousel(recommendations),
     );
   }
@@ -41,6 +35,7 @@ class RecommendationCarousel extends StatefulWidget {
   const RecommendationCarousel(this.recommendations, {super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _RecommendationCarouselState createState() => _RecommendationCarouselState();
 }
 
@@ -76,7 +71,7 @@ class _RecommendationCarouselState extends State<RecommendationCarousel> {
             },
           ),
         ),
-         SizedBox(height: dh * 0.01 ),
+        SizedBox(height: dh * 0.01),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: List.generate(
@@ -94,12 +89,19 @@ class _RecommendationCarouselState extends State<RecommendationCarousel> {
     double dh = responsive.height;
     //double dg = responsive.diagonal;
     return Container(
-      margin:  EdgeInsets.only(right: dw * 0.01, left: dw * 0.01, top: dh * 0.01, bottom: dh * 0.03),
-      width: pageIndex == _currentPage ? dw * 0.03 : dw * 0.02,
-      height: dh * 0.01,
+      margin: EdgeInsets.only(
+          right: dw * 0.01, left: dw * 0.01, top: dh * 0.01, bottom: dh * 0.03),
+      width: pageIndex == _currentPage ? dw * 0.04 : dw * 0.04,
+      height: pageIndex == _currentPage ? dh * 0.015 : dh * 0.015,
       decoration: BoxDecoration(
-        color: pageIndex == _currentPage ? Colors.blue : Colors.grey,
-        borderRadius: BorderRadius.circular(4),
+        shape: BoxShape.circle,
+
+        color: pageIndex == _currentPage ? azulTuquesa : Colors.white,
+        border: Border.all(
+          color: azulTuquesa,
+          width: 1,
+        ),
+        //borderRadius: BorderRadius.circular(4),
       ),
     );
   }

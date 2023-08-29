@@ -64,6 +64,7 @@ flutter:
   assets:
     - assets/logoVitalPulse.png
     - assets/logoRecomendation1.png
+    - assets/logoRecomendation2.png
     - assets/logoDataPage.png
     - assets/icons/visivility_off.svg
     - assets/icons/visivility.svg

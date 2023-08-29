@@ -24,111 +24,108 @@ class _DataPageState extends State<DataPage> {
     return Scaffold(
         backgroundColor: backGroundColorApp,
         body: SingleChildScrollView(
-          child: Container(
-            //margin: EdgeInsets.only(top: dh * 0.01),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Column(
-                  children: [
-                    Stack(children: [
-                      Image(
-                        width: dw * 1,
-                        height: dh * 0.4,
-                        image: const AssetImage('assets/logoDataPage.png'),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Column(
+                children: [
+                  Stack(children: [
+                    Image(
+                      width: dw * 1,
+                      height: dh * 0.4,
+                      image: const AssetImage('assets/logoDataPage.png'),
+                    ),
+                    Positioned(
+                      top: dh * 0.3,
+                      left: dw * 0.18,
+                      child: Text(
+                        'Completa tus datos',
+                        style: GoogleFonts.montserrat(
+                            fontSize: dg * 0.03,
+                            fontWeight: FontWeight.w500,
+                            color: azulMarino),
                       ),
-                      Positioned(
-                        top: dh * 0.3,
-                        left: dw * 0.18,
-                        child: Text(
-                          'Completa tus datos',
-                          style: GoogleFonts.montserrat(
-                              fontSize: dg * 0.03,
-                              fontWeight: FontWeight.w500,
-                              color: azulMarino),
-                        ),
-                      ),
-                    ]),
-                    Form(
-                        child: Column(
-                      children: [
-                        TextFormFieldApp2(
-                            font: 0.015,
-                            height: 0.06,
-                            labelText: 'Nombre',
-                            hintText: 'Ingresa tu nombre',
-                            obscureText: false,
-                            isPassword: false),
-                        TextFormFieldOptions(
-                          options: const ['Masculino', 'Femenino', 'Otro'],
+                    ),
+                  ]),
+                  Form(
+                      child: Column(
+                    children: [
+                      TextFormFieldApp2(
                           font: 0.015,
                           height: 0.06,
-                          labelText: 'Género',
-                          hintText: 'Selecciona tu género',
-                        
+                          labelText: 'Nombre',
+                          hintText: 'Ingresa tu nombre',
+                          obscureText: false,
+                          isPassword: false),
+                      TextFormFieldOptions(
+                        options: const ['Masculino', 'Femenino', 'Otro'],
+                        font: 0.015,
+                        height: 0.06,
+                        labelText: 'Género',
+                        hintText: 'Selecciona tu género',
+                      
+                      ),
+                      TextFormFieldApp2(
+                          font: 0.015,
+                          height: 0.06,
+                          labelText: 'Edad',
+                          hintText: 'Ingresa tu edad',
+                          obscureText: false,
+                          isPassword: false),
+                      TextFormFieldApp2(
+                          font: 0.015,
+                          height: 0.06,
+                          labelText: 'Peso',
+                          hintText: 'Ingresa tu peso',
+                          obscureText: false,
+                          isPassword: false),
+                      TextFormFieldApp2(
+                          font: 0.015,
+                          height: 0.06,
+                          labelText: 'Talla',
+                          hintText: 'Ingresa tu estatura',
+                          obscureText: false,
+                          isPassword: false),
+                      TextFormFieldOptions(
+                        options: const ['Latino', 'Raizal', 'Afro', 'Indigena', 'Otro'],
+                          font: 0.015,
+                          height: 0.06,
+                          labelText: 'Etnia',
+                          hintText: 'Ingresa tu etnia',
+                          
+                      )],
+                  )),
+                  SizedBox(
+                    height: dh * 0.035,
+                  ),
+                  ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: azulTuquesa,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
                         ),
-                        TextFormFieldApp2(
-                            font: 0.015,
-                            height: 0.06,
-                            labelText: 'Edad',
-                            hintText: 'Ingresa tu edad',
-                            obscureText: false,
-                            isPassword: false),
-                        TextFormFieldApp2(
-                            font: 0.015,
-                            height: 0.06,
-                            labelText: 'Peso',
-                            hintText: 'Ingresa tu peso',
-                            obscureText: false,
-                            isPassword: false),
-                        TextFormFieldApp2(
-                            font: 0.015,
-                            height: 0.06,
-                            labelText: 'Talla',
-                            hintText: 'Ingresa tu estatura',
-                            obscureText: false,
-                            isPassword: false),
-                        TextFormFieldOptions(
-                          options: const ['Latino', 'Raizal', 'Afro', 'Indigena', 'Otro'],
-                            font: 0.015,
-                            height: 0.06,
-                            labelText: 'Etnia',
-                            hintText: 'Ingresa tu etnia',
-                            
-                        )],
-                    )),
-                    SizedBox(
-                      height: dh * 0.035,
-                    ),
-                    ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: azulTuquesa,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                          padding: EdgeInsets.symmetric(
-                              vertical: dh * 0.02, horizontal: dw * 0.17),
-                        ),
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) =>  RecommendationPage()),
-                          );
+                        padding: EdgeInsets.symmetric(
+                            vertical: dh * 0.02, horizontal: dw * 0.17),
+                      ),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>  const RecommendationPage()),
+                        );
 
 
-                        },
-                        child: Text(
-                          'Siguiente',
-                          style: GoogleFonts.montserrat(
-                              fontWeight: FontWeight.bold,
-                              fontSize: dg * 0.02,
-                              color: Colors.white),
-                        ))
-                  ],
-                ),
-              ],
-            ),
+                      },
+                      child: Text(
+                        'Siguiente',
+                        style: GoogleFonts.montserrat(
+                            fontWeight: FontWeight.bold,
+                            fontSize: dg * 0.02,
+                            color: Colors.white),
+                      ))
+                ],
+              ),
+            ],
           ),
         ));
   }
