@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:vital_pulse/pages/data_page.dart';
 import 'package:vital_pulse/styles/colors.dart';
 import 'package:vital_pulse/styles/responsive_size.dart';
 import 'package:vital_pulse/widgets/text_form_field.dart';
@@ -59,14 +60,14 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ],
                 ),
-                 TextFormFieldApp(
+                TextFormFieldApp(
                   isPassword: false,
                   obscureText: false,
                   labelText: 'Correo',
                   hintText: 'Ingrese su correo',
                   //prefixIcon:  Icon(Icons.email),
                 ),
-                 TextFormFieldApp(
+                TextFormFieldApp(
                   isPassword: true,
                   obscureText: true,
                   labelText: 'Contraseña',
@@ -80,19 +81,31 @@ class _LoginPageState extends State<LoginPage> {
                     color: azulMarino,
                   ),
                 ),
-                 SizedBox(
+                SizedBox(
                   height: dh * 0.04,
                 ),
                 ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: azulTuquesa,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: azulTuquesa,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      padding: EdgeInsets.symmetric(
+                          vertical: dh * 0.02, horizontal: dw * 0.17),
                     ),
-                    padding: EdgeInsets.symmetric(
-                        vertical: dh * 0.02, horizontal: dw * 0.17),
-                  ),
-                  onPressed: (){}, child: Text('Entrar', style: GoogleFonts.montserrat( fontWeight: FontWeight.bold,fontSize: dg * 0.02, color: Colors.white),))
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const DataPage()),
+                      );
+                    },
+                    child: Text(
+                      'Entrar',
+                      style: GoogleFonts.montserrat(
+                          fontWeight: FontWeight.bold,
+                          fontSize: dg * 0.02,
+                          color: Colors.white),
+                    ))
               ],
             ),
           ),
