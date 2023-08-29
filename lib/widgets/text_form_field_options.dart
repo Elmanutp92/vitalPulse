@@ -2,16 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:vital_pulse/styles/colors.dart';
 import 'package:vital_pulse/styles/responsive_size.dart';
 
+// ignore: must_be_immutable
 class TextFormFieldOptions extends StatefulWidget {
   final String? labelText;
   final String? hintText;
   double? height;
+  double? font;
+  List<String>? options;
 
    TextFormFieldOptions({
     super.key,
     this.labelText,
     this.hintText,
     this.height,
+    this.font,
+    this.options,
   });
 
   @override
@@ -20,7 +25,7 @@ class TextFormFieldOptions extends StatefulWidget {
 
 class _TextFormFieldOptionsState extends State<TextFormFieldOptions> {
   String? selectedOption;
-  final List<String> genero = ['Masculino', 'Femenino', 'Otro'];
+ // final List<String> genero = ['Masculino', 'Femenino', 'Otro'];
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +40,7 @@ class _TextFormFieldOptionsState extends State<TextFormFieldOptions> {
 
       child: DropdownButtonFormField<String>(
         value: selectedOption, // Valor seleccionado
-        items: genero.map((String option) {
+        items: widget.options!.map((String option) {
           return DropdownMenuItem<String>(
             value: option,
             child: Text(option),
@@ -63,7 +68,7 @@ class _TextFormFieldOptionsState extends State<TextFormFieldOptions> {
               ),
           labelStyle: TextStyle(
             color: azulMarino,
-            fontSize: dg * 0.02, // Ajusta el tamaño de la etiqueta
+            fontSize: dg * widget.font!.toDouble(), // Ajusta el tamaño de la etiqueta
             // Puedes ajustar el peso de la etiqueta
           ),
         ),

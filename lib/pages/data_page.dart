@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:vital_pulse/pages/recomendation_page.dart';
 import 'package:vital_pulse/styles/colors.dart';
 import 'package:vital_pulse/styles/responsive_size.dart';
-import 'package:vital_pulse/widgets/text_form_field.dart';
 import 'package:vital_pulse/widgets/text_form_field2.dart';
 import 'package:vital_pulse/widgets/text_form_field_options.dart';
 
@@ -31,26 +31,24 @@ class _DataPageState extends State<DataPage> {
               children: [
                 Column(
                   children: [
-                    Center(
-                      child: Stack(children: [
-                        Image(
-                          width: dw * 1,
-                          height: dh * 0.4,
-                          image: const AssetImage('assets/logoDataPage.png'),
+                    Stack(children: [
+                      Image(
+                        width: dw * 1,
+                        height: dh * 0.4,
+                        image: const AssetImage('assets/logoDataPage.png'),
+                      ),
+                      Positioned(
+                        top: dh * 0.3,
+                        left: dw * 0.18,
+                        child: Text(
+                          'Completa tus datos',
+                          style: GoogleFonts.montserrat(
+                              fontSize: dg * 0.03,
+                              fontWeight: FontWeight.w500,
+                              color: azulMarino),
                         ),
-                        Positioned(
-                          top: dh * 0.3,
-                          left: dw * 0.12,
-                          child: Text(
-                            'Completa tus datos',
-                            style: GoogleFonts.montserrat(
-                                fontSize: dg * 0.03,
-                                fontWeight: FontWeight.w500,
-                                color: azulMarino),
-                          ),
-                        ),
-                      ]),
-                    ),
+                      ),
+                    ]),
                     Form(
                         child: Column(
                       children: [
@@ -62,6 +60,8 @@ class _DataPageState extends State<DataPage> {
                             obscureText: false,
                             isPassword: false),
                         TextFormFieldOptions(
+                          options: const ['Masculino', 'Femenino', 'Otro'],
+                          font: 0.015,
                           height: 0.06,
                           labelText: 'Género',
                           hintText: 'Selecciona tu género',
@@ -88,14 +88,14 @@ class _DataPageState extends State<DataPage> {
                             hintText: 'Ingresa tu estatura',
                             obscureText: false,
                             isPassword: false),
-                        TextFormFieldApp2(
+                        TextFormFieldOptions(
+                          options: const ['Latino', 'Raizal', 'Afro', 'Indigena', 'Otro'],
                             font: 0.015,
                             height: 0.06,
                             labelText: 'Etnia',
                             hintText: 'Ingresa tu etnia',
-                            obscureText: false,
-                            isPassword: false),
-                      ],
+                            
+                        )],
                     )),
                     SizedBox(
                       height: dh * 0.035,
@@ -110,11 +110,11 @@ class _DataPageState extends State<DataPage> {
                               vertical: dh * 0.02, horizontal: dw * 0.17),
                         ),
                         onPressed: () {
-                         /* Navigator.push(
+                          Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const DataPage()),
-                          );*/
+                                builder: (context) =>  RecommendationPage()),
+                          );
 
 
                         },
