@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:vital_pulse/pages/questions_pages.dart';
 import 'package:vital_pulse/pages/recomendation_page.dart';
 import 'package:vital_pulse/styles/colors.dart';
 import 'package:vital_pulse/styles/responsive_size.dart';
@@ -100,6 +101,7 @@ class _DataPageState extends State<DataPage> {
                   ),
                   ElevatedButton(
                       style: ElevatedButton.styleFrom(
+                        elevation: 8,
                         backgroundColor: azulTuquesa,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20),
@@ -111,7 +113,7 @@ class _DataPageState extends State<DataPage> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) =>  const RecommendationPage()),
+                              builder: (context) =>  const QuestionsPage()),
                         );
 
 
