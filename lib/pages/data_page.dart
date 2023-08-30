@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:vital_pulse/pages/questions_pages.dart';
-import 'package:vital_pulse/pages/recomendation_page.dart';
 import 'package:vital_pulse/styles/colors.dart';
 import 'package:vital_pulse/styles/responsive_size.dart';
 import 'package:vital_pulse/widgets/text_form_field2.dart';

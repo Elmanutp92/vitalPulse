@@ -16,7 +16,7 @@ class _Recomendation4State extends State<Recomendation4> {
     Responsive responsive = Responsive(context);
     double dw = responsive.width;
     double dh = responsive.height;
-    //double dg = responsive.diagonal;
+    double dg = responsive.diagonal;
     return Scaffold(
       body: Column(
         children: [
@@ -58,7 +58,7 @@ class _Recomendation4State extends State<Recomendation4> {
                 child: Text(
                   'Empecemos',
                   style: GoogleFonts.montserrat(
-                    fontSize: 20,
+                    fontSize: dg * 0.03,
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
                   ),
