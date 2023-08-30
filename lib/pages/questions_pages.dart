@@ -40,7 +40,7 @@ class _QuestionsPageState extends State<QuestionsPage> {
           Positioned(
             top: dh * 0.3,
             left: dw * 0.05,
-            child: Container(
+            child: SizedBox(
               width: dw * 0.9,
               //color: Colors.amber,
               child: Text(
@@ -56,7 +56,7 @@ class _QuestionsPageState extends State<QuestionsPage> {
           ),
           Positioned(
             top: dh * 0.49,
-            child: Container(
+            child: SizedBox(
               width: dw,
               height: dh * 0.48,
               //color: Colors.amber,
