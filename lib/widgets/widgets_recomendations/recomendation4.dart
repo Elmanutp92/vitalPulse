@@ -38,15 +38,30 @@ class _Recomendation4State extends State<Recomendation4> {
             ]),
           ),
           const Spacer(),
+          SizedBox(
+            //color: Colors.amber,
+            width: dw * 0.9,
+            child: Text(
+              'Luego de completar el registro de mañana y tarde por mínimo 7 días, tendrás la clasificación de tu presión arterial y recomendaciones guiadas a tu resultado.',
+              textAlign: TextAlign.center,
+              style: GoogleFonts.montserrat(
+                fontSize: dg * 0.03,
+                //fontWeight: FontWeight.w600,
+                color: Colors.black,
+              ),
+            ),
+          ),
+          const Spacer(),
           Container(
+            width: dw * 0.4,
+            height: dh * 0.08,
             margin: EdgeInsets.only(bottom: dh * 0.04),
             //color: Colors.amber,
             child: ElevatedButton(
                 onPressed: () {},
                 style: ButtonStyle(
                   elevation: MaterialStateProperty.all<double>(8),
-                  minimumSize: MaterialStateProperty.all<Size>(
-                      Size(dw * 0.2, dh * 0.06)),
+                  
                   backgroundColor:
                       MaterialStateProperty.all<Color>(azulTuquesa),
                   shape: MaterialStateProperty.all<RoundedRectangleBorder>(
@@ -58,7 +73,7 @@ class _Recomendation4State extends State<Recomendation4> {
                 child: Text(
                   'Empecemos',
                   style: GoogleFonts.montserrat(
-                    fontSize: dg * 0.03,
+                    fontSize: dg * 0.02,
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
                   ),
