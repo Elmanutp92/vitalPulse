@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:vital_pulse/pages/data_page.dart';
 import 'package:vital_pulse/styles/colors.dart';
 import 'package:vital_pulse/styles/responsive_size.dart';
-import 'package:vital_pulse/widgets/text_form_field.dart';
+import 'package:vital_pulse/widgets/text_form_field_app.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -13,6 +13,12 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final GlobalKey<FormState> _globalKey = GlobalKey<FormState>();
+
+  final TextEditingController _controllerEmail = TextEditingController();
+  final TextEditingController _controllerPassword = TextEditingController();
+
+
   @override
   Widget build(BuildContext context) {
     Responsive responsive = Responsive(context);
@@ -60,7 +66,12 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ],
                 ),
-                TextFormFieldApp(
+                Form(child: Column(
+                  key: _globalKey,
+                  children: [
+                    TextFormFieldApp(
+                  emailTextController: _controllerEmail.text,
+                  passwordTextController: _controllerPassword.text,
                   isPassword: false,
                   obscureText: false,
                   labelText: 'Correo',
@@ -68,12 +79,16 @@ class _LoginPageState extends State<LoginPage> {
                   //prefixIcon:  Icon(Icons.email),
                 ),
                 TextFormFieldApp(
+                  emailTextController: _controllerEmail.text,
+                  passwordTextController: _controllerPassword.text,
                   isPassword: true,
                   obscureText: true,
                   labelText: 'Contraseña',
                   hintText: 'Ingrese su contraseña',
                   // prefixIcon:  Icon(Icons.lock),
                 ),
+                  ],
+                )),
                 Text(
                   '¿Olvidaste tu contraseña?',
                   style: GoogleFonts.montserrat(

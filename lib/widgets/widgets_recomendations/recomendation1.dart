@@ -37,6 +37,7 @@ class _Recomendation1State extends State<Recomendation1> {
                   ),
               ),
               Positioned(
+                //top: dh * -0.04,
                 left: dw * 0.23,
                 child: Image.asset(
                   'assets/logoRecomendation1.png',
@@ -59,19 +60,19 @@ class _Recomendation1State extends State<Recomendation1> {
             child:  Text('Vamos a iniciar el registro de presión arterial, dos veces al día (mañana y tarde), por 7 dias. ', 
             textAlign: TextAlign.center,
             style: GoogleFonts.montserrat(
-              fontSize: dg * 0.03,
+              fontSize: dg * 0.025,
               //fontWeight: FontWeight.w600,
               color: Colors.black,
             ),),
           ),
-          SizedBox(height: dh * 0.02), 
+          SizedBox(height: dh * 0.04), 
           SizedBox(
             //color: Colors.amber,
             width: dw * 0.9,
             child:  Text('Debes tener a la mano tu tensiómetro digital,  adecuadamente calibrado ', 
             textAlign: TextAlign.center,
             style: GoogleFonts.montserrat(
-              fontSize: dg * 0.03,
+              fontSize: dg * 0.025,
               //fontWeight: FontWeight.w600,
               color: Colors.black,
             ),),

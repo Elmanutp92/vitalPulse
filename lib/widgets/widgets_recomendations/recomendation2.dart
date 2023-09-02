@@ -55,7 +55,7 @@ class _Recomendation2State extends State<Recomendation2> {
             child:  Text('Encuentra un Ambiente tranquilo y en reposo', 
             textAlign: TextAlign.center,
             style: GoogleFonts.montserrat(
-              fontSize: dg * 0.03,
+              fontSize: dg * 0.025,
               //fontWeight: FontWeight.w600,
               color: Colors.black,
             ),),
@@ -67,7 +67,7 @@ class _Recomendation2State extends State<Recomendation2> {
             child:  Text('Coloca el brazo en un superficie plana y a la altura del corazón', 
             textAlign: TextAlign.center,
             style: GoogleFonts.montserrat(
-              fontSize: dg * 0.03,
+              fontSize: dg * 0.025,
               //fontWeight: FontWeight.w600,
               color: Colors.black,
             ),),

@@ -91,8 +91,8 @@ class _RecommendationCarouselState extends State<RecommendationCarousel> {
     return Container(
       margin: EdgeInsets.only(
           right: dw * 0.01, left: dw * 0.01, top: dh * 0.01, bottom: dh * 0.03),
-      width: pageIndex == _currentPage ? dw * 0.04 : dw * 0.04,
-      height: pageIndex == _currentPage ? dh * 0.015 : dh * 0.015,
+      width: pageIndex == _currentPage ? dw * 0.055 : dw * 0.055,
+      height: pageIndex == _currentPage ? dh * 0.019 : dh * 0.019,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
 

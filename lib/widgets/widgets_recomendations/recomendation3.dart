@@ -55,7 +55,7 @@ class _Recomendation3State extends State<Recomendation3> {
             child:  Text('Debes realizar dos (2) lecturas separadas en intervalo de dos(2) minutos', 
             textAlign: TextAlign.center,
             style: GoogleFonts.montserrat(
-              fontSize: dg * 0.03,
+              fontSize: dg * 0.025,
               //fontWeight: FontWeight.w600,
               color: Colors.black,
             ),),

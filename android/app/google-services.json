@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "218422031515",
+    "project_id": "vitalpulse-ce830",
+    "storage_bucket": "vitalpulse-ce830.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:218422031515:android:ff94103c511de81fc8823e",
+        "android_client_info": {
+          "package_name": "com.example.vital_pulse"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "218422031515-6oujk4saeuav5q1pujb2hp8mcvrsuag4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyADp4hdMgm06XbZM51Ni-o5exiX_Q7DcPw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "218422031515-6oujk4saeuav5q1pujb2hp8mcvrsuag4.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "218422031515-95aeeu7614fdbqi1leeted0513heod83.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.vitalPulse"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -9,6 +9,8 @@ class TextFormFieldApp extends StatefulWidget {
   final String? hintText;
   bool obscureText;
   bool isPassword;
+  String emailTextController;
+  String passwordTextController;
 
   TextFormFieldApp({
     super.key,
@@ -16,6 +18,8 @@ class TextFormFieldApp extends StatefulWidget {
     required this.hintText,
     required this.obscureText,
     required this.isPassword,
+    required this.emailTextController,
+    required this.passwordTextController,
   });
 
   @override
@@ -34,8 +38,10 @@ class _TextFormFieldAppState extends State<TextFormFieldApp> {
       height: dh * 0.08,
       margin: const EdgeInsets.all(10),
       child: TextFormField(
+        controller: widget.isPassword ?  TextEditingController(text: widget.passwordTextController) : TextEditingController(text: widget.emailTextController),
         obscureText: widget.obscureText,
         decoration: InputDecoration(
+          
           fillColor: Colors.white, // Color de fondo del campo
           filled: true, // Habilitar el relleno de color
           border: OutlineInputBorder(
