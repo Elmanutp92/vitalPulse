@@ -26,6 +26,8 @@ class TextFormFieldApp extends StatefulWidget {
   State<TextFormFieldApp> createState() => _TextFormFieldAppState();
 }
 
+
+
 class _TextFormFieldAppState extends State<TextFormFieldApp> {
   @override
   Widget build(BuildContext context) {
@@ -38,6 +40,12 @@ class _TextFormFieldAppState extends State<TextFormFieldApp> {
       height: dh * 0.08,
       margin: const EdgeInsets.all(10),
       child: TextFormField(
+        validator: (value) {
+          if (value!.isEmpty) {
+            return 'Por favor ingrese un valor';
+          }
+          return null;
+        },
         controller: widget.isPassword ?  TextEditingController(text: widget.passwordTextController) : TextEditingController(text: widget.emailTextController),
         obscureText: widget.obscureText,
         decoration: InputDecoration(

@@ -21,114 +21,117 @@ class _DataPageState extends State<DataPage> {
     double dh = responsive.height;
     double dg = responsive.diagonal;
 
-    return Scaffold(
-        backgroundColor: backGroundColorApp,
-        body: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Column(
-                children: [
-                  Stack(children: [
-                    Image(
-                      width: dw * 1,
-                      height: dh * 0.4,
-                      image: const AssetImage('assets/logoDataPage.png'),
-                    ),
-                    Positioned(
-                      top: dh * 0.3,
-                      left: dw * 0.18,
-                      child: Text(
-                        'Completa tus datos',
-                        style: GoogleFonts.montserrat(
-                            fontSize: dg * 0.03,
-                            fontWeight: FontWeight.w500,
-                            color: azulMarino),
+    return PopScope(
+    canPop: false,
+      child: Scaffold(
+          backgroundColor: backGroundColorApp,
+          body: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Column(
+                  children: [
+                    Stack(children: [
+                      Image(
+                        width: dw * 1,
+                        height: dh * 0.4,
+                        image: const AssetImage('assets/logoDataPage.png'),
                       ),
-                    ),
-                  ]),
-                  Form(
-                      child: Column(
-                    children: [
-                      TextFormFieldApp2(
-                          font: 0.015,
-                          height: 0.06,
-                          labelText: 'Nombre',
-                          hintText: 'Ingresa tu nombre',
-                          obscureText: false,
-                          isPassword: false),
-                      TextFormFieldOptions(
-                        options: const ['Masculino', 'Femenino', 'Otro'],
-                        font: 0.015,
-                        height: 0.06,
-                        labelText: 'Género',
-                        hintText: 'Selecciona tu género',
-                      
-                      ),
-                      TextFormFieldApp2(
-                          font: 0.015,
-                          height: 0.06,
-                          labelText: 'Edad',
-                          hintText: 'Ingresa tu edad',
-                          obscureText: false,
-                          isPassword: false),
-                      TextFormFieldApp2(
-                          font: 0.015,
-                          height: 0.06,
-                          labelText: 'Peso',
-                          hintText: 'Ingresa tu peso',
-                          obscureText: false,
-                          isPassword: false),
-                      TextFormFieldApp2(
-                          font: 0.015,
-                          height: 0.06,
-                          labelText: 'Talla',
-                          hintText: 'Ingresa tu estatura',
-                          obscureText: false,
-                          isPassword: false),
-                      TextFormFieldOptions(
-                        options: const ['Latino', 'Raizal', 'Afro', 'Indigena', 'Otro'],
-                          font: 0.015,
-                          height: 0.06,
-                          labelText: 'Etnia',
-                          hintText: 'Ingresa tu etnia',
-                          
-                      )],
-                  )),
-                  SizedBox(
-                    height: dh * 0.035,
-                  ),
-                  ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        elevation: 8,
-                        backgroundColor: azulTuquesa,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20),
+                      Positioned(
+                        top: dh * 0.3,
+                        left: dw * 0.18,
+                        child: Text(
+                          'Completa tus datos',
+                          style: GoogleFonts.montserrat(
+                              fontSize: dg * 0.03,
+                              fontWeight: FontWeight.w500,
+                              color: azulMarino),
                         ),
-                        padding: EdgeInsets.symmetric(
-                            vertical: dh * 0.02, horizontal: dw * 0.17),
                       ),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) =>  const QuestionsPage()),
-                        );
-
-
-                      },
-                      child: Text(
-                        'Siguiente',
-                        style: GoogleFonts.montserrat(
-                            fontWeight: FontWeight.bold,
-                            fontSize: dg * 0.02,
-                            color: Colors.white),
-                      ))
-                ],
-              ),
-            ],
-          ),
-        ));
+                    ]),
+                    Form(
+                        child: Column(
+                      children: [
+                        TextFormFieldApp2(
+                            font: 0.015,
+                            height: 0.06,
+                            labelText: 'Nombre',
+                            hintText: 'Ingresa tu nombre',
+                            obscureText: false,
+                            isPassword: false),
+                        TextFormFieldOptions(
+                          options: const ['Masculino', 'Femenino', 'Otro'],
+                          font: 0.015,
+                          height: 0.06,
+                          labelText: 'Género',
+                          hintText: 'Selecciona tu género',
+                        
+                        ),
+                        TextFormFieldApp2(
+                            font: 0.015,
+                            height: 0.06,
+                            labelText: 'Edad',
+                            hintText: 'Ingresa tu edad',
+                            obscureText: false,
+                            isPassword: false),
+                        TextFormFieldApp2(
+                            font: 0.015,
+                            height: 0.06,
+                            labelText: 'Peso',
+                            hintText: 'Ingresa tu peso',
+                            obscureText: false,
+                            isPassword: false),
+                        TextFormFieldApp2(
+                            font: 0.015,
+                            height: 0.06,
+                            labelText: 'Talla',
+                            hintText: 'Ingresa tu estatura',
+                            obscureText: false,
+                            isPassword: false),
+                        TextFormFieldOptions(
+                          options: const ['Latino', 'Raizal', 'Afro', 'Indigena', 'Otro'],
+                            font: 0.015,
+                            height: 0.06,
+                            labelText: 'Etnia',
+                            hintText: 'Ingresa tu etnia',
+                            
+                        )],
+                    )),
+                    SizedBox(
+                      height: dh * 0.035,
+                    ),
+                    ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          elevation: 8,
+                          backgroundColor: azulTuquesa,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          padding: EdgeInsets.symmetric(
+                              vertical: dh * 0.02, horizontal: dw * 0.17),
+                        ),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>  const QuestionsPage()),
+                          );
+    
+    
+                        },
+                        child: Text(
+                          'Siguiente',
+                          style: GoogleFonts.montserrat(
+                              fontWeight: FontWeight.bold,
+                              fontSize: dg * 0.02,
+                              color: Colors.white),
+                        ))
+                  ],
+                ),
+              ],
+            ),
+          )),
+    );
   }
 }
 

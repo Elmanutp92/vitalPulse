@@ -4,6 +4,7 @@ import 'package:vital_pulse/firebase_options.dart';
 import 'package:vital_pulse/pages/login_page.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
   options: DefaultFirebaseOptions.currentPlatform,
 );
