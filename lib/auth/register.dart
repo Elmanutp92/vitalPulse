@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:vital_pulse/auth/login.dart';
 import 'package:vital_pulse/pages/data_page.dart';
 import 'package:vital_pulse/styles/responsive_size.dart';
 
@@ -14,9 +15,9 @@ Future<bool> register(String email, String password, context) async {
       email: email,
       password: password,
     );
-    Navigator.push(
-        context, MaterialPageRoute(builder: (context) => const DataPage()));
+    
     // El usuario se registró con éxito
+
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         backgroundColor: Colors.green,
@@ -27,6 +28,13 @@ Future<bool> register(String email, String password, context) async {
                 fontWeight: FontWeight.bold)),
       ),
     );
+
+    
+
+
+    
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => const DataPage()));
     return true;
   } catch (e) {
     // Handle specific Firebase Authentication errors
