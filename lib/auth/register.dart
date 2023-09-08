@@ -1,21 +1,20 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:vital_pulse/auth/login.dart';
 import 'package:vital_pulse/pages/data_page.dart';
 import 'package:vital_pulse/styles/responsive_size.dart';
 
 Future<bool> register(String email, String password, context) async {
-   Responsive responsive = Responsive(context);
-    //double dw = responsive.width;
-    //double dh = responsive.height;
-    double dg = responsive.diagonal;
+  Responsive responsive = Responsive(context);
+  //double dw = responsive.width;
+  //double dh = responsive.height;
+  double dg = responsive.diagonal;
   try {
     await FirebaseAuth.instance.createUserWithEmailAndPassword(
       email: email,
       password: password,
     );
-    
+
     // El usuario se registró con éxito
 
     ScaffoldMessenger.of(context).showSnackBar(
@@ -29,10 +28,6 @@ Future<bool> register(String email, String password, context) async {
       ),
     );
 
-    
-
-
-    
     Navigator.push(
         context, MaterialPageRoute(builder: (context) => const DataPage()));
     return true;

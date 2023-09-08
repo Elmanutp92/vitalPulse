@@ -3,9 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:loading_indicator/loading_indicator.dart';
 import 'package:vital_pulse/auth/login.dart';
-
-import 'package:vital_pulse/auth/register.dart';
-
 import 'package:vital_pulse/styles/colors.dart';
 import 'package:vital_pulse/styles/responsive_size.dart';
 
@@ -36,13 +33,12 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     final User? user = FirebaseAuth.instance.currentUser;
-      if (user != null) {
-        setState(() {
-          userId = user.uid;
-        });
-        print(userId);
-      }
-    
+    if (user != null) {
+      setState(() {
+        userId = user.uid;
+      });
+      print(userId);
+    }
 
     Responsive responsive = Responsive(context);
     double dw = responsive.width;

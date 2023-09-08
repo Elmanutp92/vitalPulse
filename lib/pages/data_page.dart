@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:loading_indicator/loading_indicator.dart';
 import 'package:vital_pulse/db/register_user_info.dart';
-import 'package:vital_pulse/pages/questions_pages.dart';
 import 'package:vital_pulse/styles/colors.dart';
 import 'package:vital_pulse/styles/responsive_size.dart';
 

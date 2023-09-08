@@ -1,4 +1,4 @@
-import 'dart:ffi';
+
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -13,7 +13,7 @@ Future<void> registerUserInfo(String name, String gender, String age,
     final user = FirebaseAuth.instance.currentUser;
     if (user != null) {
       final userId = user.uid;
-      final email = user.email; 
+      //final email = user.email; 
 
       final userInfo = {
         'nombre': name,
