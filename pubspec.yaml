@@ -1,5 +1,6 @@
 name: vital_pulse
 description: "A new Flutter project."
+sdk: '>=2.12.0 <4.0.0'
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
@@ -19,7 +20,8 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.2.0-97.0.dev <4.0.0'
+   sdk: '>=3.1.0 <4.0.0'
+#  sdk: '3.14.0-0.2.pre'
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -42,6 +44,7 @@ dependencies:
   loading_indicator: ^3.1.1
   cloud_firestore: ^4.9.1
   provider: ^6.0.5
+  graphic_representation: ^1.1.2
 
 
 dev_dependencies:

@@ -44,8 +44,8 @@ class _DataPageState extends State<DataPage> {
     double dh = responsive.height;
     double dg = responsive.diagonal;
 
-    return PopScope(
-      canPop: false,
+    return WillPopScope(
+      onWillPop: () async => false,
       child: Stack(children: [
         if (isLoading)
           Positioned.fill(
