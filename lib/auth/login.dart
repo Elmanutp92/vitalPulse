@@ -37,8 +37,8 @@ Future<bool> login(String email, String password, context) async {
       // Si no se encuentra un usuario con ese correo electrónico, redirige a la página de registro.
       await register(email, password, context);
 
-      print(
-          'No se encontró un usuario con ese correo electrónico. Se ha registrado un nuevo usuario.');
+     //print(
+         // 'No se encontró un usuario con ese correo electrónico. Se ha registrado un nuevo usuario.');
     } else if (e.code == 'wrong-password') {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
@@ -53,7 +53,7 @@ Future<bool> login(String email, String password, context) async {
           ),
         ),
       );
-      print('Contraseña incorrecta para ese usuario.');
+    //  print('Contraseña incorrecta para ese usuario.');
     }
     return false; // Debes devolver false en caso de error.
   } catch (e) {
@@ -70,7 +70,7 @@ Future<bool> login(String email, String password, context) async {
         ),
       ),
     );
-    print('Error durante el inicio de sesión: $e');
+    //print('Error durante el inicio de sesión: $e');
     return false; // También debes devolver false en caso de error.
   }
 }

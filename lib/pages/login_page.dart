@@ -24,7 +24,7 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   void dispose() {
-    // TODO: implement dispose
+  
     super.dispose();
     _controllerEmail.dispose();
     _controllerPassword.dispose();
@@ -37,7 +37,8 @@ class _LoginPageState extends State<LoginPage> {
       setState(() {
         userId = user.uid;
       });
-      print(userId);
+      //print('email: ${user.email}');
+      //print('userId: $userId');
     }
 
     Responsive responsive = Responsive(context);
@@ -125,7 +126,7 @@ class _LoginPageState extends State<LoginPage> {
                         key: _globalKey,
                         child: Column(
                           children: [
-                            Container(
+                            SizedBox(
                               height: dh * 0.11,
                               width: dw * 0.95,
                               //margin:  EdgeInsets.only(
@@ -180,7 +181,7 @@ class _LoginPageState extends State<LoginPage> {
                                 ],
                               ),
                             ),
-                            Container(
+                            SizedBox(
                               height: dh * 0.12,
                               width: dw * 0.95,
                               //margin:  EdgeInsets.only(

@@ -25,7 +25,7 @@ Future<bool> singOut (context) async {
   } catch (e) {
     // Handle specific Firebase Auth errors
     if (e is FirebaseAuthException) {
-      print(e.message);
+    //  print(e.message);
     }
     return false;
   }

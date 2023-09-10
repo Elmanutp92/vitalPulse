@@ -46,7 +46,7 @@ Future<bool> register(String email, String password, context) async {
                     fontWeight: FontWeight.bold)),
           ),
         );
-        print('Contraseña débil');
+        //('Contraseña débil');
       } else if (e.code == 'email-already-in-use') {
         // El correo electrónico ya está en uso, notificar al usuario
         ScaffoldMessenger.of(context).showSnackBar(
@@ -59,7 +59,7 @@ Future<bool> register(String email, String password, context) async {
                     fontWeight: FontWeight.bold)),
           ),
         );
-        print('Correo electrónico ya en uso');
+       // print('Correo electrónico ya en uso');
       } else {
         // Otro error de Firebase Authentication, imprimir detalles para depuración
         ScaffoldMessenger.of(context).showSnackBar(
@@ -72,7 +72,7 @@ Future<bool> register(String email, String password, context) async {
                     fontWeight: FontWeight.bold)),
           ),
         );
-        print('Error de autenticación: ${e.message}');
+       // print('Error de autenticación: ${e.message}');
       }
     } else {
       // Otro tipo de error, imprimir para depuración
@@ -86,7 +86,7 @@ Future<bool> register(String email, String password, context) async {
                   fontWeight: FontWeight.bold)),
         ),
       );
-      print('Error desconocido: $e');
+     // print('Error desconocido: $e');
     }
     // El registro no fue exitoso
     return false;

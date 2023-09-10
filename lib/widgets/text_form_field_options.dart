@@ -10,7 +10,7 @@ class TextFormFieldOptions extends StatefulWidget {
   double? font;
   List<String>? options;
 
-   TextFormFieldOptions({
+  TextFormFieldOptions({
     super.key,
     this.labelText,
     this.hintText,
@@ -25,7 +25,7 @@ class TextFormFieldOptions extends StatefulWidget {
 
 class _TextFormFieldOptionsState extends State<TextFormFieldOptions> {
   String? selectedOption;
- // final List<String> genero = ['Masculino', 'Femenino', 'Otro'];
+  // final List<String> genero = ;
 
   @override
   Widget build(BuildContext context) {
@@ -37,10 +37,9 @@ class _TextFormFieldOptionsState extends State<TextFormFieldOptions> {
     return Container(
       height: dh * widget.height!.toDouble(),
       margin: const EdgeInsets.all(5),
-
       child: DropdownButtonFormField<String>(
         value: selectedOption, // Valor seleccionado
-        items: widget.options!.map((String option) {
+        items: ['Masculino', 'Femenino', 'Otro'].map((String option) {
           return DropdownMenuItem<String>(
             value: option,
             child: Text(option),
@@ -60,7 +59,7 @@ class _TextFormFieldOptionsState extends State<TextFormFieldOptions> {
           ),
           labelText: widget.labelText,
           hintText: widget.hintText,
-    
+
           contentPadding: EdgeInsets.symmetric(
               vertical: dh *
                   0.02, // Ajusta el espacio vertical dentro del TextFormField
@@ -68,7 +67,8 @@ class _TextFormFieldOptionsState extends State<TextFormFieldOptions> {
               ),
           labelStyle: TextStyle(
             color: azulMarino,
-            fontSize: dg * widget.font!.toDouble(), // Ajusta el tamaño de la etiqueta
+            fontSize:
+                dg * widget.font!.toDouble(), // Ajusta el tamaño de la etiqueta
             // Puedes ajustar el peso de la etiqueta
           ),
         ),

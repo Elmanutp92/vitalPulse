@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:vital_pulse/pages/home_page.dart';
+
 import 'package:vital_pulse/styles/colors.dart';
 import 'package:vital_pulse/styles/responsive_size.dart';
 
@@ -58,10 +60,14 @@ class _Recomendation4State extends State<Recomendation4> {
             margin: EdgeInsets.only(bottom: dh * 0.04),
             //color: Colors.amber,
             child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const  HomePage()),
+                  );
+                },
                 style: ButtonStyle(
                   elevation: MaterialStateProperty.all<double>(8),
-                  
                   backgroundColor:
                       MaterialStateProperty.all<Color>(azulTuquesa),
                   shape: MaterialStateProperty.all<RoundedRectangleBorder>(

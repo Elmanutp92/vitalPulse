@@ -5,7 +5,7 @@ import 'package:vital_pulse/db/register_user_info.dart';
 import 'package:vital_pulse/styles/colors.dart';
 import 'package:vital_pulse/styles/responsive_size.dart';
 
-import 'package:vital_pulse/widgets/text_form_field_options.dart';
+
 
 class DataPage extends StatefulWidget {
   const DataPage({super.key});
@@ -16,28 +16,29 @@ class DataPage extends StatefulWidget {
 
 class _DataPageState extends State<DataPage> {
   final TextEditingController nameController = TextEditingController();
-  final TextEditingController genderController = TextEditingController();
+
   final TextEditingController ageController = TextEditingController();
   final TextEditingController weightController = TextEditingController();
   final TextEditingController statureController = TextEditingController();
-  final TextEditingController etniaController = TextEditingController();
+
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
-  bool isLoaging = false;
+  bool isLoading = false;
 
   @override
   void dispose() {
-    // TODO: implement dispose
+    
     super.dispose();
     nameController.dispose();
-    genderController.dispose();
+
     ageController.dispose();
     weightController.dispose();
     statureController.dispose();
-    etniaController.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
+    String? selectedOptionGender = 'Otro';
+    String? selectedOptionEtnia = 'Otro';
     Responsive responsive = Responsive(context);
     double dw = responsive.width;
     double dh = responsive.height;
@@ -46,41 +47,44 @@ class _DataPageState extends State<DataPage> {
     return PopScope(
       canPop: false,
       child: Stack(children: [
-        if (isLoaging)
+        if (isLoading)
           Positioned.fill(
-            child: Container(
-              color: backGroundColorApp.withOpacity(0.5),
-              child: Center(
-                  child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text('Cargando...',
-                      style: GoogleFonts.montserrat(
-                          fontWeight: FontWeight.bold,
-                          fontSize: dg * 0.02,
-                          color: azulMedianoche)),
-                  const LoadingIndicator(
+            child: Scaffold(
+              body: Container(
+                height: dh * 1,
+                color: backGroundColorApp,
+                child: Center(
+                    child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text('Cargando...',
+                        style: GoogleFonts.montserrat(
+                            fontWeight: FontWeight.bold,
+                            fontSize: dg * 0.02,
+                            color: azulMedianoche)),
+                    const LoadingIndicator(
                       indicatorType: Indicator.ballScaleMultiple,
-
+            
                       /// Required, The loading type of the widget
                       colors: [azulTuquesa, azulMedianoche],
-
+            
                       /// Optional, The color collections
                       //strokeWidth: 2,
-
+            
                       /// Optional, The stroke of the line, only applicable to widget which contains line
-                      backgroundColor: backGroundColorApp,
-
+                      // backgroundColor: backGroundColorApp,
+            
                       /// Optional, Background of the widget
-                      pathBackgroundColor: backGroundColorApp
-
+                      //pathBackgroundColor: backGroundColorApp
+            
                       /// Optional, the stroke backgroundColor
-                      ),
-                ],
-              )),
+                    ),
+                  ],
+                )),
+              ),
             ),
           ),
-        if (!isLoaging)
+        if (!isLoading)
           Scaffold(
               backgroundColor: backGroundColorApp,
               body: SingleChildScrollView(
@@ -116,6 +120,13 @@ class _DataPageState extends State<DataPage> {
                                   height: dh * 0.06,
                                   margin: const EdgeInsets.all(5),
                                   child: TextFormField(
+                                    controller: nameController,
+                                    validator: (value) {
+                                      if (value!.isEmpty) {
+                                        return 'Por favor ingresa tu nombre';
+                                      }
+                                      return null;
+                                    },
                                     decoration: InputDecoration(
                                       fillColor: Colors
                                           .white, // Color de fondo del campo
@@ -144,22 +155,64 @@ class _DataPageState extends State<DataPage> {
                                   ),
                                 ),
                                 //GENERO
-                                TextFormFieldOptions(
-                                  options: const [
-                                    'Masculino',
-                                    'Femenino',
-                                    'Otro'
-                                  ],
-                                  font: 0.015,
-                                  height: 0.06,
-                                  labelText: 'Género',
-                                  hintText: 'Selecciona tu género',
+                                Container(
+                                  height: dh * 0.06,
+                                  margin: const EdgeInsets.all(5),
+                                  child: DropdownButtonFormField<String>(
+                                    value: selectedOptionGender,
+                                    // Valor seleccionado
+                                    items: ['Masculino', 'Femenino', 'Otro']
+                                        .map((String option) {
+                                      return DropdownMenuItem<String>(
+                                        value: option,
+                                        child: Text(option),
+                                      );
+                                    }).toList(),
+                                    onChanged: (newValue) {
+                                      setState(() {
+                                        selectedOptionGender =
+                                            newValue!; // Actualizar la opción seleccionada
+                                      });
+                                    },
+                                    decoration: InputDecoration(
+                                      fillColor: Colors
+                                          .white, // Color de fondo del campo
+                                      filled:
+                                          true, // Habilitar el relleno de color
+                                      border: OutlineInputBorder(
+                                        borderSide: BorderSide.none,
+                                        borderRadius: BorderRadius.circular(20),
+                                      ),
+                                      labelText: 'Genero',
+                                      hintText: 'Ingresa tu genero',
+
+                                      contentPadding: EdgeInsets.symmetric(
+                                          vertical: dh *
+                                              0.02, // Ajusta el espacio vertical dentro del TextFormField
+                                          horizontal: dw *
+                                              0.03 // Espacio horizontal constante
+                                          ),
+                                      labelStyle: TextStyle(
+                                        color: azulMarino,
+                                        fontSize: dg *
+                                            0.015, // Ajusta el tamaño de la etiqueta
+                                        // Puedes ajustar el peso de la etiqueta
+                                      ),
+                                    ),
+                                  ),
                                 ),
                                 // EDAD
                                 Container(
                                   height: dh * 0.06,
                                   margin: const EdgeInsets.all(5),
                                   child: TextFormField(
+                                    controller: ageController,
+                                    validator: (value) {
+                                      if (value!.isEmpty) {
+                                        return 'Por favor ingresa tu nombre';
+                                      }
+                                      return null;
+                                    },
                                     decoration: InputDecoration(
                                       fillColor: Colors
                                           .white, // Color de fondo del campo
@@ -192,6 +245,13 @@ class _DataPageState extends State<DataPage> {
                                   height: dh * 0.06,
                                   margin: const EdgeInsets.all(5),
                                   child: TextFormField(
+                                    controller: weightController,
+                                    validator: (value) {
+                                      if (value!.isEmpty) {
+                                        return 'Por favor ingresa tu nombre';
+                                      }
+                                      return null;
+                                    },
                                     decoration: InputDecoration(
                                       fillColor: Colors
                                           .white, // Color de fondo del campo
@@ -224,6 +284,13 @@ class _DataPageState extends State<DataPage> {
                                   height: dh * 0.06,
                                   margin: const EdgeInsets.all(5),
                                   child: TextFormField(
+                                    controller: statureController,
+                                    validator: (value) {
+                                      if (value!.isEmpty) {
+                                        return 'Por favor ingresa tu nombre';
+                                      }
+                                      return null;
+                                    },
                                     decoration: InputDecoration(
                                       fillColor: Colors
                                           .white, // Color de fondo del campo
@@ -252,19 +319,56 @@ class _DataPageState extends State<DataPage> {
                                   ),
                                 ),
                                 // ETNIA
-                                TextFormFieldOptions(
-                                  options: const [
-                                    'Latino',
-                                    'Raizal',
-                                    'Afro',
-                                    'Indigena',
-                                    'Otro'
-                                  ],
-                                  font: 0.015,
-                                  height: 0.06,
-                                  labelText: 'Etnia',
-                                  hintText: 'Ingresa tu etnia',
-                                )
+                                Container(
+                                  height: dh * 0.06,
+                                  margin: const EdgeInsets.all(5),
+                                  child: DropdownButtonFormField<String>(
+                                    value:
+                                        selectedOptionEtnia, // Valor seleccionado
+                                    items: [
+                                      'Raizal',
+                                      'Palenquero',
+                                      'Latino/a',
+                                      'Otro'
+                                    ].map((String option) {
+                                      return DropdownMenuItem<String>(
+                                        value: option,
+                                        child: Text(option),
+                                      );
+                                    }).toList(),
+                                    onChanged: (newValue) {
+                                      setState(() {
+                                        selectedOptionEtnia =
+                                            newValue!; // Actualizar la opción seleccionada
+                                      });
+                                    },
+                                    decoration: InputDecoration(
+                                      fillColor: Colors
+                                          .white, // Color de fondo del campo
+                                      filled:
+                                          true, // Habilitar el relleno de color
+                                      border: OutlineInputBorder(
+                                        borderSide: BorderSide.none,
+                                        borderRadius: BorderRadius.circular(20),
+                                      ),
+                                      labelText: 'Etnia',
+                                      hintText: 'Ingresa tu etnia',
+
+                                      contentPadding: EdgeInsets.symmetric(
+                                          vertical: dh *
+                                              0.02, // Ajusta el espacio vertical dentro del TextFormField
+                                          horizontal: dw *
+                                              0.03 // Espacio horizontal constante
+                                          ),
+                                      labelStyle: TextStyle(
+                                        color: azulMarino,
+                                        fontSize: dg *
+                                            0.015, // Ajusta el tamaño de la etiqueta
+                                        // Puedes ajustar el peso de la etiqueta
+                                      ),
+                                    ),
+                                  ),
+                                ),
                               ],
                             )),
                         SizedBox(
@@ -280,26 +384,26 @@ class _DataPageState extends State<DataPage> {
                               padding: EdgeInsets.symmetric(
                                   vertical: dh * 0.02, horizontal: dw * 0.17),
                             ),
-                            onPressed: () {
+                            onPressed: () async {
                               setState(() {
-                                isLoaging = true;
+                                isLoading = true;
                               });
                               if (formKey.currentState!.validate()) {
-                                registerUserInfo(
-                                    nameController.text,
-                                    'masculino',
-                                    ageController.text,
-                                    weightController.text,
-                                    statureController.text,
-                                    'Raizal',
-                                    context);
+                                await registerUserInfo(
+                                  nameController.text,
+                                  selectedOptionGender,
+                                  ageController.text,
+                                  weightController.text,
+                                  statureController.text,
+                                  selectedOptionEtnia,
+                                  context,
+                                );
                                 setState(() {
-                                  isLoaging = false;
+                                  isLoading = false;
                                 });
-                               
-                                print('Validado');
+                               // print('Validado');
                               } else {
-                                print('No validado');
+                               // print('No validado');
                               }
                             },
                             child: Text(
