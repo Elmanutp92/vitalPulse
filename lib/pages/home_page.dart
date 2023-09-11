@@ -7,6 +7,7 @@ import 'package:vital_pulse/db/services/get_user_info.dart';
 import 'package:vital_pulse/provider/user_data_provider.dart';
 import 'package:vital_pulse/styles/colors.dart';
 import 'package:vital_pulse/styles/responsive_size.dart';
+import 'package:vital_pulse/widgets/butoom_sheet.dart';
 
 class HomePage extends StatefulWidget {
   // ignore: use_key_in_widget_constructors
@@ -38,6 +39,7 @@ class _HomePageState extends State<HomePage> {
       if (!isLoading)
         Scaffold(
           appBar: AppBar(
+          toolbarHeight: dh * 0.05,
             automaticallyImplyLeading: false,
             elevation: 0,
             backgroundColor: backGroundColorApp,
@@ -57,7 +59,7 @@ class _HomePageState extends State<HomePage> {
             builder: (context, userDataProvider, child) {
               final userId = userDataProvider.userId;
               final email = userDataProvider.email;
-                
+
               return FutureBuilder(
                   future: getUserInfo(userId),
                   builder: (context, snapshot) {
@@ -89,7 +91,7 @@ class _HomePageState extends State<HomePage> {
                       final stature = data[0]['talla'].toString();
                       final etnia = data[0]['etnia'].toString();
                       final genero = data[0]['genero'].toString();
-                
+
                       return Column(
                         children: [
                           Container(
@@ -119,34 +121,33 @@ class _HomePageState extends State<HomePage> {
                               ],
                             ),
                           ),
+                          SizedBox(height: dh * 0.02),
                           Container(
-                            width: dw ,
+                            width: dw,
                             height: dh * 0.31,
                             decoration: const BoxDecoration(
-                             //color: azulCeleste,
+                              //color: azulCeleste,
                               shape: BoxShape.circle,
                             ),
                             child: CircularGraphic(
-                              
                               context: context,
                               nums: const [204, 121],
                               titles: const [
                                 'Lunes',
                                 'Martes',
-                                
                               ],
                               colors: const [
                                 azulClaro,
-                               azulReal,
-                               
+                                azulReal,
                               ],
                               showPourcentage: true,
                               colorsInfo: Colors.white,
                             ),
                           ),
+                          SizedBox(height: dh * 0.05),
                           Container(
                             width: dw * 0.8,
-                                    
+
                             //color: Colors.white,
                             child: Text(
                               'Empieza tu primer registro de presion arterial. Recuerda buscar un ambiente tranquilo y en reposo.',
@@ -190,17 +191,7 @@ class _HomePageState extends State<HomePage> {
                                 height: dh * 0.15,
                                 decoration: const BoxDecoration(
                                     color: azulTuquesa, shape: BoxShape.circle),
-                                child: IconButton(
-                                  onPressed: () {
-                                    Navigator.pushNamed(context, 'registro');
-                                  },
-                                  icon: Icon(
-                                    Icons.add,
-                                    color: Colors.white,
-                                    size: dg * 0.08,
-                                    weight: 0.2,
-                                  ),
-                                ),
+                                child: const  ButoomSheet(),
                               ),
                             ),
                           ])
